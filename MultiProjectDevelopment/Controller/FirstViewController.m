@@ -172,20 +172,12 @@
     self.totalTimeCounterLabel.text = text;
 }
 
-//- (void)updateProjectsList {
-//    NSArray* projectsNames = [[[Settings instance] projects] bk_map:^id(Project* project) {
-//        return project.name;
-//    }];
-//
-//    self.selectedProject.options = projectsNames;
-//}
-
 - (void)updateEntries {
     NSDate* lastDate = [[Settings instance] getLastDate];
     NSArray* entries = [[Settings instance] getEntriesArrayFor:lastDate];
     TimeEntry* entry = [entries lastObject];
     
-    if(entry.finished == nil) {
+    if(entry != nil && entry.finished == nil) {
         self.started = YES;
     }
     
