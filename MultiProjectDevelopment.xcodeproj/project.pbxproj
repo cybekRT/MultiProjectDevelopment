@@ -17,7 +17,6 @@
 		A73CC0B0243BD35000843031 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A73CC0AF243BD35000843031 /* SecondViewController.m */; };
 		A73CC0B5243BD35300843031 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A73CC0B4243BD35300843031 /* Assets.xcassets */; };
 		A73CC0BB243BD35300843031 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A73CC0BA243BD35300843031 /* main.m */; };
-		A75643A6243BE3BD00937231 /* UIPickerField.m in Sources */ = {isa = PBXBuildFile; fileRef = A75643A5243BE3BD00937231 /* UIPickerField.m */; };
 		A75643AE2442745700937231 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = A75643AD2442745700937231 /* Settings.m */; };
 		A75643B12442746A00937231 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = A75643B02442746A00937231 /* Project.m */; };
 		A7A892B624428E85008BBF54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7A892B424428E85008BBF54 /* LaunchScreen.storyboard */; };
@@ -26,6 +25,7 @@
 		A7A892BC24429DF2008BBF54 /* UITimeEntryTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7A892BB24429DF2008BBF54 /* UITimeEntryTableView.xib */; };
 		A7A892C32442B225008BBF54 /* UITimeEntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A892C12442B225008BBF54 /* UITimeEntryTableViewCell.m */; };
 		A7A892C624432E89008BBF54 /* UITimeEntryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7A892C524432E89008BBF54 /* UITimeEntryTableViewCell.xib */; };
+		A7A892C824437D83008BBF54 /* UIProjectPickerField.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A892C724437D83008BBF54 /* UIProjectPickerField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,8 +48,7 @@
 		A73CC0B4243BD35300843031 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A73CC0B9243BD35300843031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A73CC0BA243BD35300843031 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A75643A4243BE3BD00937231 /* UIPickerField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIPickerField.h; sourceTree = "<group>"; };
-		A75643A5243BE3BD00937231 /* UIPickerField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIPickerField.m; sourceTree = "<group>"; };
+		A75643A4243BE3BD00937231 /* UIProjectPickerField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIProjectPickerField.h; sourceTree = "<group>"; };
 		A75643AC2442745700937231 /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		A75643AD2442745700937231 /* Settings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		A75643AF2442746A00937231 /* Project.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
@@ -62,6 +61,7 @@
 		A7A892C02442B225008BBF54 /* UITimeEntryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITimeEntryTableViewCell.h; sourceTree = "<group>"; };
 		A7A892C12442B225008BBF54 /* UITimeEntryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITimeEntryTableViewCell.m; sourceTree = "<group>"; };
 		A7A892C524432E89008BBF54 /* UITimeEntryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UITimeEntryTableViewCell.xib; sourceTree = "<group>"; };
+		A7A892C724437D83008BBF54 /* UIProjectPickerField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIProjectPickerField.m; sourceTree = "<group>"; };
 		F9E41F5D86973B49B43B0F12 /* libPods-MultiProjectDevelopment.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MultiProjectDevelopment.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -97,8 +97,8 @@
 		A70CCD4F2442897D00089142 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A75643A4243BE3BD00937231 /* UIPickerField.h */,
-				A75643A5243BE3BD00937231 /* UIPickerField.m */,
+				A75643A4243BE3BD00937231 /* UIProjectPickerField.h */,
+				A7A892C724437D83008BBF54 /* UIProjectPickerField.m */,
 				A7A892B824429CA5008BBF54 /* UITimeEntryTableView.h */,
 				A7A892B924429CA5008BBF54 /* UITimeEntryTableView.m */,
 				A7A892BB24429DF2008BBF54 /* UITimeEntryTableView.xib */,
@@ -300,11 +300,11 @@
 				A70CCD4B2442758900089142 /* TimeEntry.m in Sources */,
 				A73CC0B0243BD35000843031 /* SecondViewController.m in Sources */,
 				A7A892C32442B225008BBF54 /* UITimeEntryTableViewCell.m in Sources */,
-				A75643A6243BE3BD00937231 /* UIPickerField.m in Sources */,
 				A70CCD4E2442792000089142 /* NSDate+Extensions.m in Sources */,
 				A75643B12442746A00937231 /* Project.m in Sources */,
 				A7A892BA24429CA5008BBF54 /* UITimeEntryTableView.m in Sources */,
 				A73CC0A7243BD35000843031 /* AppDelegate.m in Sources */,
+				A7A892C824437D83008BBF54 /* UIProjectPickerField.m in Sources */,
 				A73CC0AD243BD35000843031 /* FirstViewController.m in Sources */,
 				A73CC0AA243BD35000843031 /* SceneDelegate.m in Sources */,
 				A75643AE2442745700937231 /* Settings.m in Sources */,

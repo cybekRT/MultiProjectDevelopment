@@ -8,13 +8,13 @@
 
 #import "FirstViewController.h"
 #import "Model/Settings.h"
-#import "UIPickerField.h"
+#import "UIProjectPickerField.h"
 #import "UITimeEntryTableView.h"
 #import <BlocksKit/BlocksKit.h>
 
 @interface FirstViewController ()
 
-@property (weak, nonatomic) IBOutlet UIPickerField *selectedProject;
+@property (weak, nonatomic) IBOutlet UIProjectPickerField *selectedProjectPickerField;
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
 @property (weak, nonatomic) IBOutlet UILabel *timeCounterLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeCounterLabel;
@@ -42,7 +42,7 @@
     //[[Settings instance] addProject:[[Project alloc] initWithId:2 andName:@"Project 3"]];
     //self.selectedProject.options = [[Settings instance] projects];
     
-    [self.selectedProject addObserver:self forKeyPath:@"selectedOption" options:NSKeyValueObservingOptionNew context:nil];
+    [self.selectedProjectPickerField addObserver:self forKeyPath:@"selectedProject" options:NSKeyValueObservingOptionNew context:nil];
     
     self.timeEntryTableView.date = [NSDate date];
     //[self.timeEntryTableView reloadData];
@@ -56,7 +56,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     NSLog(@"viewWillAppear");
     
-    [self updateProjectsList];
+    //[self updateProjectsList];
     [self updateEntries];
     [self updateCounter];
     [self updateButton];
@@ -72,13 +72,14 @@
 - (IBAction)startStopClicked:(id)sender {
     NSLog(@"viewWillDisappear");
     
-    if(self.selectedProject.selectedOption == nil) {
+    Project* selectedProject = self.selectedProjectPickerField.selectedProject;
+    if(selectedProject == nil) {
         NSLog(@"Project not selected!");
         return;
     }
     
     if(self.started == NO) {
-        NSUInteger projectId = [self.selectedProject.selectedOption unsignedIntegerValue];
+        NSUInteger projectId = selectedProject.identifier;
         Project* project = [[Settings instance] getProjectById:projectId];
         TimeEntry* entry = [[TimeEntry alloc] initWithProject:project];
         [[Settings instance] addEntry:entry];
@@ -168,13 +169,13 @@
     self.totalTimeCounterLabel.text = text;
 }
 
-- (void)updateProjectsList {
-    NSArray* projectsNames = [[[Settings instance] projects] bk_map:^id(Project* project) {
-        return project.name;
-    }];
-    
-    self.selectedProject.options = projectsNames;
-}
+//- (void)updateProjectsList {
+//    NSArray* projectsNames = [[[Settings instance] projects] bk_map:^id(Project* project) {
+//        return project.name;
+//    }];
+//
+//    self.selectedProject.options = projectsNames;
+//}
 
 - (void)updateEntries {
     NSDate* lastDate = [[Settings instance] getLastDate];
@@ -190,7 +191,7 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     
-    if(object == self.selectedProject && self.started == YES) {
+    if(object == self.selectedProjectPickerField && self.started == YES) {
         [self startStopClicked:nil];
         [self startStopClicked:nil];
     }

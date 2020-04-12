@@ -7,14 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Project.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIPickerField : UITextField
+@interface UIProjectPickerField : UITextField
 
-@property (nonatomic, nullable) NSArray<NSString*>* options;
-
-@property (nonatomic, nullable) NSNumber* selectedOption;
+@property (nonatomic, nullable) Project* selectedProject;
 
 @end
 

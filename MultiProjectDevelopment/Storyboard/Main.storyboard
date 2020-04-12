@@ -44,7 +44,7 @@
                                         <rect key="frame" x="0.0" y="159" width="414" height="497"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </tableView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eB6-MM-vUA" customClass="UIPickerField">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eB6-MM-vUA" customClass="UIProjectPickerField">
                                         <rect key="frame" x="0.0" y="656" width="414" height="113"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -63,7 +63,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Timer" image="first" id="acW-dT-cKf"/>
                     <connections>
-                        <outlet property="selectedProject" destination="eB6-MM-vUA" id="Gfe-6y-Wcf"/>
+                        <outlet property="selectedProjectPickerField" destination="eB6-MM-vUA" id="UZs-g8-gzp"/>
                         <outlet property="startStopButton" destination="h4W-2C-wf3" id="ade-yT-vqD"/>
                         <outlet property="timeCounterLabel" destination="59L-h3-loC" id="i5F-9m-yvP"/>
                         <outlet property="timeEntryTableView" destination="PfT-pJ-R9k" id="EnR-Py-DED"/>

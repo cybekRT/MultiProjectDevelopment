@@ -50,7 +50,7 @@ static Settings* instance = nil;
 }
 
 - (void)load {
-    NSLog(@"Loading data...");
+    NSLog(@"Loading data - projects...");
     
     NSData* projectsData = [[NSData alloc] initWithContentsOfFile:self.projectsPath];
     if(projectsData) {
@@ -63,6 +63,7 @@ static Settings* instance = nil;
         NSLog(@"No saved projects!");
     }
     
+    NSLog(@"Loading data - entries...");
     NSData* entriesData = [[NSData alloc] initWithContentsOfFile:self.entriesPath];
     if(entriesData) {
         NSError* error;
@@ -73,6 +74,8 @@ static Settings* instance = nil;
     } else {
         NSLog(@"No saved entries!");
     }
+    
+    NSLog(@"Loading data - done!");
 }
 
 - (void)save {
