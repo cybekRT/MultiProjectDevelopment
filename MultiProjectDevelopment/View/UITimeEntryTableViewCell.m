@@ -21,17 +21,10 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
-    
-    [self.label1 setText:@"A"];
-    [self.label2 setText:@"B"];
-    [self.label3 setText:@"C"];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 - (void)refreshData {
@@ -42,12 +35,8 @@
     NSDateComponents* startedComponents = [[NSCalendar currentCalendar] components:NSCalendarUnitHour|NSCalendarUnitMinute fromDate:self.timeEntry.started];
     
     [self.label2 setText:[NSString stringWithFormat:@"%lu:%02lu", startedComponents.hour, startedComponents.minute]];
-    
-    //NSDateComponents* finishedComponents = [[NSCalendar currentCalendar] components:NSCalendarUnitHour|NSCalendarUnitMinute fromDate:self.timeEntry.started];
-    
+
     if(self.timeEntry.finished) {
-        //NSUInteger interval = (NSUInteger)(-[self.timeEntry.started timeIntervalSinceNow]);
-        
         NSUInteger interval = [self.timeEntry.finished timeIntervalSinceDate:self.timeEntry.started];
         
         NSUInteger seconds = interval % 60;
@@ -56,13 +45,6 @@
         
         NSString* text = [NSString stringWithFormat:@"%lu:%02lu:%02lu", hours, minutes, seconds];
         [self.label3 setText:text];
-        
-        /*NSString* text = @"";
-        if(hours > 0) {
-            text = [text stringByAppendingFormat:@"%lu:", (unsigned long)hours];
-        }*/
-        
-        //[self.label3 setText:[self.timeEntry.finished description]];
     } else {
         [self.label3 setText:@"-----"];
     }

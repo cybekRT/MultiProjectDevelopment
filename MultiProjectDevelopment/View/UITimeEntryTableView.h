@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UITimeEntryTableView : UIView
+@interface UITimeEntryTableView : UITableView
 
 @property NSDate* date;
 

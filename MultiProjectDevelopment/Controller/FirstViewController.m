@@ -75,6 +75,14 @@
     Project* selectedProject = self.selectedProjectPickerField.selectedProject;
     if(selectedProject == nil) {
         NSLog(@"Project not selected!");
+        
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"" message:@"No project selected!" preferredStyle:UIAlertControllerStyleAlert];
+        [self showViewController:alert sender:self];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [alert dismissViewControllerAnimated:YES completion:nil];
+        });
+        
         return;
     }
     
@@ -107,11 +115,6 @@
 
 - (void)updateCounter {
     NSLog(@"updateCounter");
-    
-//    if(self.started == NO) {
-//        self.timeCounterLabel.text = @"00:00";
-//        return;
-//    }
     
     if(self.counter == nil && self.started == YES) {
         self.counter = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateCounter) userInfo:nil repeats:YES];
