@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSDate*)getLastDate;
 
 - (void)addEntry:(TimeEntry*)entry;
+- (void)addEntry:(TimeEntry*)entry toDate:(NSDate*)date;
 - (TimeEntry*)getLastEntry;
 - (NSArray<TimeEntry*>*)getEntriesArrayFor:(NSDate*)date;
 

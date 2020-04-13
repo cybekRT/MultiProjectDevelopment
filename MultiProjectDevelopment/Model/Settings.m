@@ -105,7 +105,11 @@ static Settings* instance = nil;
 }
 
 - (void)addEntry:(TimeEntry*)entry {
-    NSDate* entryDate = [entry.started dateOnly];
+    [self addEntry:entry toDate:[entry.started dateOnly]];
+}
+
+- (void)addEntry:(TimeEntry*)entry toDate:(NSDate*)date {
+    NSDate* entryDate = [date dateOnly];
     NSMutableArray* dateEntries = (NSMutableArray*)[self.entries objectForKey:entryDate];
     
     if(dateEntries == nil) {

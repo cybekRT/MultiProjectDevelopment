@@ -16,22 +16,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="m10-hG-yR5">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="121"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="142.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59L-h3-loC">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="38.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020-04-13" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wA-TA-muM">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="G8y-Vi-pRp">
+                                        <rect key="frame" x="0.0" y="21.5" width="375" height="38.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAJ-ys-A6k">
+                                                <rect key="frame" x="0.0" y="0.0" width="124" height="38.5"/>
+                                                <state key="normal" title="Button" image="chevron.left" catalog="system"/>
+                                                <connections>
+                                                    <action selector="prevDayPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="zLM-XL-H4e"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59L-h3-loC">
+                                                <rect key="frame" x="124" y="0.0" width="127" height="38.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5e-ZH-JId">
+                                                <rect key="frame" x="251" y="0.0" width="124" height="38.5"/>
+                                                <state key="normal" title="Button" image="chevron.right" catalog="system"/>
+                                                <connections>
+                                                    <action selector="nextDayPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Koj-Bc-osR"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWb-uU-NZ7">
-                                        <rect key="frame" x="0.0" y="39.5" width="375" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="61" width="375" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="center" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4W-2C-wf3">
-                                        <rect key="frame" x="0.0" y="61" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="82.5" width="375" height="60"/>
                                         <color key="backgroundColor" systemColor="secondarySystemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="xfQ-pJ-Qx1"/>
@@ -44,7 +69,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PfT-pJ-R9k" customClass="UITimeEntryTableView">
-                                <rect key="frame" x="0.0" y="121" width="375" height="463"/>
+                                <rect key="frame" x="0.0" y="142.5" width="375" height="441.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="UIProjectPickerField" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eB6-MM-vUA" customClass="UIProjectPickerField">
@@ -70,6 +95,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Timer" image="first" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="dateLabel" destination="2wA-TA-muM" id="zm1-MA-e35"/>
                         <outlet property="selectedProjectPickerField" destination="eB6-MM-vUA" id="UZs-g8-gzp"/>
                         <outlet property="startStopButton" destination="h4W-2C-wf3" id="ade-yT-vqD"/>
                         <outlet property="timeCounterLabel" destination="59L-h3-loC" id="i5F-9m-yvP"/>
@@ -228,6 +254,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.left" catalog="system" width="48" height="64"/>
+        <image name="chevron.right" catalog="system" width="48" height="64"/>
         <image name="first" width="30" height="30"/>
         <image name="plus" catalog="system" width="64" height="56"/>
         <image name="second" width="30" height="30"/>

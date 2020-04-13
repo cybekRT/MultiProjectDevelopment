@@ -12,13 +12,17 @@
 @implementation TimeEntry
 
 - (instancetype)initWithProject:(Project*)project {
-    return [self initWithProjectId:project.identifier];
+    return [self initWithProjectId:project.identifier andDate:[NSDate date]];
 }
 
-- (instancetype)initWithProjectId:(NSUInteger)projectId {
+- (instancetype)initWithProject:(Project*)project andDate:(NSDate*)date {
+    return [self initWithProjectId:project.identifier andDate:date];
+}
+
+- (instancetype)initWithProjectId:(NSUInteger)projectId andDate:(NSDate*)date {
     self = [super init];
     
-    self.started = [NSDate date];
+    self.started = date;
     self.finished = nil;
     self.projectId = projectId;
     

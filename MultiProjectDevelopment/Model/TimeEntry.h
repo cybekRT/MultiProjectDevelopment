@@ -20,7 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(readonly)     Project*    project;
 
 - (instancetype)initWithProject:(Project*)project;
-- (instancetype)initWithProjectId:(NSUInteger)projectId;
+- (instancetype)initWithProject:(Project*)project andDate:(NSDate*)date;
+- (instancetype)initWithProjectId:(NSUInteger)projectId andDate:(NSDate*)date;
 
 @end
 

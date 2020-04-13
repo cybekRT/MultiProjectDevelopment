@@ -19,9 +19,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeCounterLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeCounterLabel;
 @property (weak, nonatomic) IBOutlet UITimeEntryTableView *timeEntryTableView;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @property BOOL started;
 @property NSTimer* counter;
+@property NSDate* date;
 
 @end
 
@@ -32,16 +34,18 @@
     
     self.started = NO;
     self.counter = [[NSTimer alloc] init];
+    self.date = [NSDate date];
 
     [self.selectedProjectPickerField addObserver:self forKeyPath:@"selectedProject" options:NSKeyValueObservingOptionNew context:nil];
     
-    self.timeEntryTableView.date = [NSDate date];
+    self.timeEntryTableView.date = self.date;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self updateEntries];
     [self updateCounter];
     [self updateButton];
+    [self updateDate];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -68,7 +72,7 @@
         NSUInteger projectId = selectedProject.identifier;
         Project* project = [[Settings instance] getProjectById:projectId];
         TimeEntry* entry = [[TimeEntry alloc] initWithProject:project];
-        [[Settings instance] addEntry:entry];
+        [[Settings instance] addEntry:entry toDate:self.date];
     } else {
         TimeEntry* entry = [[Settings instance] getLastEntry];
         entry.finished = [NSDate date];
@@ -101,7 +105,7 @@
         return;
     }
     
-    TimeEntry* entry = [[Settings instance] getLastEntry];
+    TimeEntry* entry = [[[Settings instance] getEntriesArrayFor:self.date] lastObject];
     NSUInteger interval = (NSUInteger)(-[entry.started timeIntervalSinceNow]);
     
     NSUInteger seconds = interval % 60;
@@ -149,8 +153,7 @@
 }
 
 - (void)updateEntries {
-    NSDate* lastDate = [[Settings instance] getLastDate];
-    NSArray* entries = [[Settings instance] getEntriesArrayFor:lastDate];
+    NSArray* entries = [[Settings instance] getEntriesArrayFor:self.date];
     TimeEntry* entry = [entries lastObject];
     
     if(entry != nil && entry.finished == nil) {
@@ -166,6 +169,32 @@
         [self startStopClicked:nil];
         [self startStopClicked:nil];
     }
+}
+
+- (IBAction)prevDayPressed:(id)sender {
+    self.date = [self.date dateByAddingTimeInterval:-86400];
+    [self updateDate];
+}
+
+- (IBAction)nextDayPressed:(id)sender {
+    self.date = [self.date dateByAddingTimeInterval:86400];
+    [self updateDate];
+}
+
+- (void)updateDate {
+    NSDateComponents* comp = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:self.date];
+    
+    NSUInteger year = comp.year;
+    NSUInteger month = comp.month;
+    NSUInteger day = comp.day;
+    
+    NSString* text = [NSString stringWithFormat:@"%04lu-%02lu-%02lu", year, month, day];
+    [self.dateLabel setText:text];
+    
+    self.timeEntryTableView.date = self.date;
+    [self updateEntries];
+    [self updateButton];
+    [self updateCounter];
 }
 
 @end
