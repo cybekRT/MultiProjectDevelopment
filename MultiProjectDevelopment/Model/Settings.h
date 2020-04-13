@@ -20,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (Settings*)instance;
 - (void)save;
 
+- (NSData*)getArchivedProjects;
+- (NSData*)getArchivedEntries;
+
 - (NSDate*)getLastDate;
 
 - (void)addEntry:(TimeEntry*)entry;

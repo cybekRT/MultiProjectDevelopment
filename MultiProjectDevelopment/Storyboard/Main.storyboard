@@ -234,6 +234,50 @@
             </objects>
             <point key="canvasLocation" x="749.27536231884062" y="359.59821428571428"/>
         </scene>
+        <!--Export-->
+        <scene sceneID="4US-9J-64O">
+            <objects>
+                <viewController id="yqf-h8-92D" customClass="ThirdViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ksy-o1-05Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="21P-dR-2yN">
+                                <rect key="frame" x="100" y="100" width="175" height="418"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbO-Ty-ZRQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="175" height="159"/>
+                                        <state key="normal" title="Projects"/>
+                                        <connections>
+                                            <action selector="exportProjectsClicked:" destination="yqf-h8-92D" eventType="touchUpInside" id="Cia-RU-Het"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7y-ku-uUk">
+                                        <rect key="frame" x="0.0" y="259" width="175" height="159"/>
+                                        <state key="normal" title="Entries"/>
+                                        <connections>
+                                            <action selector="exportEntriesClicked:" destination="yqf-h8-92D" eventType="touchUpInside" id="20d-KL-g3z"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="T9h-Eb-Amh" firstAttribute="trailing" secondItem="21P-dR-2yN" secondAttribute="trailing" constant="100" id="d9y-XD-xuP"/>
+                            <constraint firstItem="T9h-Eb-Amh" firstAttribute="bottom" secondItem="21P-dR-2yN" secondAttribute="bottom" constant="100" id="mKz-Zd-gYx"/>
+                            <constraint firstItem="21P-dR-2yN" firstAttribute="top" secondItem="T9h-Eb-Amh" secondAttribute="top" constant="100" id="o69-AJ-k34"/>
+                            <constraint firstItem="21P-dR-2yN" firstAttribute="leading" secondItem="T9h-Eb-Amh" secondAttribute="leading" constant="100" id="u4W-NX-goG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="T9h-Eb-Amh"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Export" image="square.and.arrow.up" catalog="system" id="SBe-YQ-Npo"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AWw-Tx-7Qe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1" y="769"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
@@ -246,6 +290,7 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="yqf-h8-92D" kind="relationship" relationship="viewControllers" id="701-Cr-CtI"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -259,5 +304,6 @@
         <image name="first" width="30" height="30"/>
         <image name="plus" catalog="system" width="64" height="56"/>
         <image name="second" width="30" height="30"/>
+        <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
     </resources>
 </document>

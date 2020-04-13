@@ -80,17 +80,29 @@ static Settings* instance = nil;
 - (void)save {
     NSLog(@"Saving data...");
     
-    NSKeyedArchiver* projectsCoder = [[NSKeyedArchiver alloc] initRequiringSecureCoding:NO];
-    [projectsCoder encodeObject:self.projects];
-    NSData* projectsData = [projectsCoder encodedData];
+    NSData* projectsData = [self getArchivedProjects];
     BOOL res = [projectsData writeToFile:self.projectsPath atomically:YES];
     NSLog(@"Saving projects result: %d", res);
     
+    NSData* entriesData = [self getArchivedEntries];
+    res = [entriesData writeToFile:self.entriesPath atomically:YES];
+    NSLog(@"Saving entries result: %d", res);
+}
+
+- (NSData*)getArchivedProjects {
+    NSKeyedArchiver* projectsCoder = [[NSKeyedArchiver alloc] initRequiringSecureCoding:NO];
+    [projectsCoder encodeObject:self.projects];
+    NSData* projectsData = [projectsCoder encodedData];
+    
+    return projectsData;
+}
+
+- (NSData*)getArchivedEntries {
     NSKeyedArchiver* entriesCoder = [[NSKeyedArchiver alloc] initRequiringSecureCoding:NO];
     [entriesCoder encodeObject:self.entries];
     NSData* entriesData = [entriesCoder encodedData];
-    res = [entriesData writeToFile:self.entriesPath atomically:YES];
-    NSLog(@"Saving entries result: %d", res);
+    
+    return entriesData;
 }
 
 - (NSDate*)getLastDate {

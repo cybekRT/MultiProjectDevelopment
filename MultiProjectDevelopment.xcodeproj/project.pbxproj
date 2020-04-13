@@ -19,6 +19,7 @@
 		A73CC0BB243BD35300843031 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A73CC0BA243BD35300843031 /* main.m */; };
 		A75643AE2442745700937231 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = A75643AD2442745700937231 /* Settings.m */; };
 		A75643B12442746A00937231 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = A75643B02442746A00937231 /* Project.m */; };
+		A7A07AA624451440009DA1D7 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A07AA524451440009DA1D7 /* ThirdViewController.m */; };
 		A7A892B624428E85008BBF54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7A892B424428E85008BBF54 /* LaunchScreen.storyboard */; };
 		A7A892B724428E85008BBF54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7A892B524428E85008BBF54 /* Main.storyboard */; };
 		A7A892BA24429CA5008BBF54 /* UITimeEntryTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A892B924429CA5008BBF54 /* UITimeEntryTableView.m */; };
@@ -53,6 +54,8 @@
 		A75643AD2442745700937231 /* Settings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		A75643AF2442746A00937231 /* Project.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
 		A75643B02442746A00937231 /* Project.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
+		A7A07AA424451440009DA1D7 /* ThirdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		A7A07AA524451440009DA1D7 /* ThirdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		A7A892B424428E85008BBF54 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A7A892B524428E85008BBF54 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A7A892B824429CA5008BBF54 /* UITimeEntryTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITimeEntryTableView.h; sourceTree = "<group>"; };
@@ -116,6 +119,8 @@
 				A73CC0AC243BD35000843031 /* FirstViewController.m */,
 				A73CC0AE243BD35000843031 /* SecondViewController.h */,
 				A73CC0AF243BD35000843031 /* SecondViewController.m */,
+				A7A07AA424451440009DA1D7 /* ThirdViewController.h */,
+				A7A07AA524451440009DA1D7 /* ThirdViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A73CC0BB243BD35300843031 /* main.m in Sources */,
+				A7A07AA624451440009DA1D7 /* ThirdViewController.m in Sources */,
 				A70CCD4B2442758900089142 /* TimeEntry.m in Sources */,
 				A73CC0B0243BD35000843031 /* SecondViewController.m in Sources */,
 				A7A892C32442B225008BBF54 /* UITimeEntryTableViewCell.m in Sources */,
