@@ -29,49 +29,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"viewDidLoad");
-    // Do any additional setup after loading the view.
     
     self.started = NO;
     self.counter = [[NSTimer alloc] init];
-    
-    //self.selectedProject.options = @[@"Project 1", @"Project 2", @"Break", @"YoLo", @"Project 3"];
-    
-    //[[Settings instance] addProject:[[Project alloc] initWithId:0 andName:@"Project 1"]];
-    //[[Settings instance] addProject:[[Project alloc] initWithId:1 andName:@"Project 2"]];
-    //[[Settings instance] addProject:[[Project alloc] initWithId:2 andName:@"Project 3"]];
-    //self.selectedProject.options = [[Settings instance] projects];
-    
+
     [self.selectedProjectPickerField addObserver:self forKeyPath:@"selectedProject" options:NSKeyValueObservingOptionNew context:nil];
     
     self.timeEntryTableView.date = [NSDate date];
-    //[self.timeEntryTableView reloadData];
-    
-//    [self updateProjectsList];
-//    [self updateEntries];
-//    [self updateCounter];
-//    [self updateButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    NSLog(@"viewWillAppear");
-    
-    //[self updateProjectsList];
     [self updateEntries];
     [self updateCounter];
     [self updateButton];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    NSLog(@"viewWillDisappear");
-    
     [self.counter invalidate];
     self.counter = nil;
 }
 
 - (IBAction)startStopClicked:(id)sender {
-    NSLog(@"viewWillDisappear");
-    
     Project* selectedProject = self.selectedProjectPickerField.selectedProject;
     if(selectedProject == nil) {
         NSLog(@"Project not selected!");
@@ -114,8 +92,6 @@
 }
 
 - (void)updateCounter {
-    NSLog(@"updateCounter");
-    
     if(self.counter == nil && self.started == YES) {
         self.counter = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateCounter) userInfo:nil repeats:YES];
     }

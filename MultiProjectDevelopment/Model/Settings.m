@@ -34,7 +34,6 @@ static Settings* instance = nil;
     NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     self.entriesPath = [paths[0] stringByAppendingString:@"/entries"];
     self.projectsPath = [paths[0] stringByAppendingString:@"/projects"];
-    NSLog(@"Path: %@", paths[0]);
     
     [self load];
     
@@ -85,13 +84,13 @@ static Settings* instance = nil;
     [projectsCoder encodeObject:self.projects];
     NSData* projectsData = [projectsCoder encodedData];
     BOOL res = [projectsData writeToFile:self.projectsPath atomically:YES];
-    NSLog(@"Projects result: %d", res);
+    NSLog(@"Saving projects result: %d", res);
     
     NSKeyedArchiver* entriesCoder = [[NSKeyedArchiver alloc] initRequiringSecureCoding:NO];
     [entriesCoder encodeObject:self.entries];
     NSData* entriesData = [entriesCoder encodedData];
     res = [entriesData writeToFile:self.entriesPath atomically:YES];
-    NSLog(@"Projects result: %d", res);
+    NSLog(@"Saving entries result: %d", res);
 }
 
 - (NSDate*)getLastDate {
@@ -110,8 +109,6 @@ static Settings* instance = nil;
     NSMutableArray* dateEntries = (NSMutableArray*)[self.entries objectForKey:entryDate];
     
     if(dateEntries == nil) {
-        NSLog(@"Adding new entries array!");
-        
         NSMutableDictionary* dict = (NSMutableDictionary*)self.entries;
         
         dateEntries = [[NSMutableArray alloc] init];
