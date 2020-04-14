@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UITimeEntryTableView : UITableView
 
 @property NSDate* date;
+@property(nonatomic) BOOL showTotal;
 
 - (void)reloadData;
 

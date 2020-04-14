@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSDate*)dateOnly;
 
+- (NSString*)optionalHoursMinutesSecondsStringSince:(NSDate*)date;
+- (NSString*)hoursMinutesSecondsStringSince:(NSDate*)date;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -10,6 +10,7 @@
 #import "Model/Settings.h"
 #import "UIProjectPickerField.h"
 #import "UITimeEntryTableView.h"
+#import "NSDate+Extensions.h"
 #import <BlocksKit/BlocksKit.h>
 
 @interface FirstViewController ()
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeCounterLabel;
 @property (weak, nonatomic) IBOutlet UITimeEntryTableView *timeEntryTableView;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *totalSwitch;
 
 @property BOOL started;
 @property NSTimer* counter;
@@ -35,10 +37,9 @@
     self.started = NO;
     self.counter = [[NSTimer alloc] init];
     self.date = [NSDate date];
+    self.timeEntryTableView.date = self.date;
 
     [self.selectedProjectPickerField addObserver:self forKeyPath:@"selectedProject" options:NSKeyValueObservingOptionNew context:nil];
-    
-    self.timeEntryTableView.date = self.date;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -74,8 +75,10 @@
         TimeEntry* entry = [[TimeEntry alloc] initWithProject:project];
         [[Settings instance] addEntry:entry toDate:self.date];
     } else {
-        TimeEntry* entry = [[Settings instance] getLastEntry];
+        TimeEntry* entry = [[[Settings instance] getEntriesArrayFor:self.date] lastObject];
         entry.finished = [NSDate date];
+        
+        [[Settings instance] save];
         
         [self.counter invalidate];
         self.counter = nil;
@@ -106,21 +109,20 @@
     }
     
     TimeEntry* entry = [[[Settings instance] getEntriesArrayFor:self.date] lastObject];
-    NSUInteger interval = (NSUInteger)(-[entry.started timeIntervalSinceNow]);
-    
-    NSUInteger seconds = interval % 60;
-    NSUInteger minutes = (interval / 60) % 60;
-    NSUInteger hours = (interval / 3600);
-    
-    NSString* text = @"";
-    if(hours > 0) {
-        text = [text stringByAppendingFormat:@"%lu:", (unsigned long)hours];
+    if(entry == nil) {
+        [self.timeCounterLabel setText:@"-----"];
+        [self updateTotalCounter];
+        return;
     }
     
-    text = [text stringByAppendingFormat:@"%02lu:%02lu", (unsigned long)minutes, (unsigned long)seconds];
-    self.timeCounterLabel.text = text;
+    NSString* text = [[NSDate date] optionalHoursMinutesSecondsStringSince:entry.started];
+    [self.timeCounterLabel setText:text];
     
     [self updateTotalCounter];
+    
+    if(self.totalSwitch.isOn) {
+        [self.timeEntryTableView reloadData];
+    }
 }
 
 - (void)updateTotalCounter {
@@ -158,6 +160,8 @@
     
     if(entry != nil && entry.finished == nil) {
         self.started = YES;
+    } else {
+        self.started = NO;
     }
     
     [self.timeEntryTableView reloadData];
@@ -181,6 +185,10 @@
     [self updateDate];
 }
 
+- (IBAction)totalChanged:(id)sender {
+    self.timeEntryTableView.showTotal = self.totalSwitch.isOn;
+}
+
 - (void)updateDate {
     NSDateComponents* comp = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:self.date];
     
@@ -195,6 +203,7 @@
     [self updateEntries];
     [self updateButton];
     [self updateCounter];
+    [self updateTotalCounter];
 }
 
 @end

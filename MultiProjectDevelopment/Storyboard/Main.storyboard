@@ -69,27 +69,45 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PfT-pJ-R9k" customClass="UITimeEntryTableView">
-                                <rect key="frame" x="0.0" y="142.5" width="375" height="441.5"/>
+                                <rect key="frame" x="0.0" y="142.5" width="375" height="424.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="UIProjectPickerField" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eB6-MM-vUA" customClass="UIProjectPickerField">
-                                <rect key="frame" x="0.0" y="584" width="375" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fEY-aO-NaU">
+                                <rect key="frame" x="10" y="577" width="355" height="31"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="UIProjectPickerField" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eB6-MM-vUA" customClass="UIProjectPickerField">
+                                        <rect key="frame" x="0.0" y="0.0" width="248.5" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rLR-rB-Wj8">
+                                        <rect key="frame" x="258.5" y="0.0" width="37.5" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AdR-fh-RoT">
+                                        <rect key="frame" x="306" y="0.0" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="totalChanged:" destination="9pv-A4-QxB" eventType="valueChanged" id="t1P-R7-pqx"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="m10-hG-yR5" secondAttribute="trailing" id="2Gm-Mg-Edv"/>
                             <constraint firstItem="PfT-pJ-R9k" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="7VY-F8-a11"/>
+                            <constraint firstItem="fEY-aO-NaU" firstAttribute="top" secondItem="PfT-pJ-R9k" secondAttribute="bottom" constant="10" id="BOn-M2-QiO"/>
                             <constraint firstItem="PfT-pJ-R9k" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="Ddz-PX-cAs"/>
                             <constraint firstItem="PfT-pJ-R9k" firstAttribute="top" secondItem="m10-hG-yR5" secondAttribute="bottom" id="GMF-uC-GQ5"/>
+                            <constraint firstItem="fEY-aO-NaU" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="10" id="JD9-x1-sVQ"/>
                             <constraint firstItem="m10-hG-yR5" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="K1C-hj-w8p"/>
-                            <constraint firstItem="eB6-MM-vUA" firstAttribute="top" secondItem="PfT-pJ-R9k" secondAttribute="bottom" id="LvW-Ha-d6a"/>
                             <constraint firstItem="m10-hG-yR5" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="QTz-Sk-dkz"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="eB6-MM-vUA" secondAttribute="bottom" id="Vo4-Uu-bPz"/>
-                            <constraint firstItem="eB6-MM-vUA" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="t18-ei-RNx"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="eB6-MM-vUA" secondAttribute="trailing" id="wPL-DV-McU"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="fEY-aO-NaU" secondAttribute="bottom" constant="10" id="S7Y-f9-TdO"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="fEY-aO-NaU" secondAttribute="trailing" constant="10" id="TCJ-5A-Giu"/>
+                            <constraint firstItem="fEY-aO-NaU" firstAttribute="top" secondItem="PfT-pJ-R9k" secondAttribute="bottom" constant="10" id="azJ-UQ-Hzh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -100,6 +118,7 @@
                         <outlet property="startStopButton" destination="h4W-2C-wf3" id="ade-yT-vqD"/>
                         <outlet property="timeCounterLabel" destination="59L-h3-loC" id="i5F-9m-yvP"/>
                         <outlet property="timeEntryTableView" destination="PfT-pJ-R9k" id="EnR-Py-DED"/>
+                        <outlet property="totalSwitch" destination="AdR-fh-RoT" id="7RB-OS-rIJ"/>
                         <outlet property="totalTimeCounterLabel" destination="LWb-uU-NZ7" id="6dO-C2-az5"/>
                     </connections>
                 </viewController>

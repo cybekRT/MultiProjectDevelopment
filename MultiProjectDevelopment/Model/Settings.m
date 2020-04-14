@@ -132,6 +132,7 @@ static Settings* instance = nil;
     }
     
     [dateEntries addObject:entry];
+    [self save];
 }
 
 - (TimeEntry*)getLastEntry {

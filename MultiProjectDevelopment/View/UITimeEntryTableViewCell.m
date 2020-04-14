@@ -7,6 +7,7 @@
 //
 
 #import "UITimeEntryTableViewCell.h"
+#import "NSDate+Extensions.h"
 
 @interface UITimeEntryTableViewCell ()
 
@@ -37,13 +38,7 @@
     [self.label2 setText:[NSString stringWithFormat:@"%lu:%02lu", startedComponents.hour, startedComponents.minute]];
 
     if(self.timeEntry.finished) {
-        NSUInteger interval = [self.timeEntry.finished timeIntervalSinceDate:self.timeEntry.started];
-        
-        NSUInteger seconds = interval % 60;
-        NSUInteger minutes = (interval / 60) % 60;
-        NSUInteger hours = (interval / 3600);
-        
-        NSString* text = [NSString stringWithFormat:@"%lu:%02lu:%02lu", hours, minutes, seconds];
+        NSString* text = [self.timeEntry.finished hoursMinutesSecondsStringSince:self.timeEntry.started];
         [self.label3 setText:text];
     } else {
         [self.label3 setText:@"-----"];

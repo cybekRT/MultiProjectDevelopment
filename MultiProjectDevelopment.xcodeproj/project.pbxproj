@@ -27,6 +27,8 @@
 		A7A892C32442B225008BBF54 /* UITimeEntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A892C12442B225008BBF54 /* UITimeEntryTableViewCell.m */; };
 		A7A892C624432E89008BBF54 /* UITimeEntryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7A892C524432E89008BBF54 /* UITimeEntryTableViewCell.xib */; };
 		A7A892C824437D83008BBF54 /* UIProjectPickerField.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A892C724437D83008BBF54 /* UIProjectPickerField.m */; };
+		A7F06F6A24463E0700F6ACFE /* UITimeEntryTotalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F06F6824463E0700F6ACFE /* UITimeEntryTotalTableViewCell.m */; };
+		A7F06F6B24463E0700F6ACFE /* UITimeEntryTotalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7F06F6924463E0700F6ACFE /* UITimeEntryTotalTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,9 @@
 		A7A892C12442B225008BBF54 /* UITimeEntryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITimeEntryTableViewCell.m; sourceTree = "<group>"; };
 		A7A892C524432E89008BBF54 /* UITimeEntryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UITimeEntryTableViewCell.xib; sourceTree = "<group>"; };
 		A7A892C724437D83008BBF54 /* UIProjectPickerField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIProjectPickerField.m; sourceTree = "<group>"; };
+		A7F06F6724463E0700F6ACFE /* UITimeEntryTotalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITimeEntryTotalTableViewCell.h; sourceTree = "<group>"; };
+		A7F06F6824463E0700F6ACFE /* UITimeEntryTotalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITimeEntryTotalTableViewCell.m; sourceTree = "<group>"; };
+		A7F06F6924463E0700F6ACFE /* UITimeEntryTotalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UITimeEntryTotalTableViewCell.xib; sourceTree = "<group>"; };
 		F9E41F5D86973B49B43B0F12 /* libPods-MultiProjectDevelopment.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MultiProjectDevelopment.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -108,6 +113,9 @@
 				A7A892C02442B225008BBF54 /* UITimeEntryTableViewCell.h */,
 				A7A892C12442B225008BBF54 /* UITimeEntryTableViewCell.m */,
 				A7A892C524432E89008BBF54 /* UITimeEntryTableViewCell.xib */,
+				A7F06F6724463E0700F6ACFE /* UITimeEntryTotalTableViewCell.h */,
+				A7F06F6824463E0700F6ACFE /* UITimeEntryTotalTableViewCell.m */,
+				A7F06F6924463E0700F6ACFE /* UITimeEntryTotalTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -261,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7A892B624428E85008BBF54 /* LaunchScreen.storyboard in Resources */,
+				A7F06F6B24463E0700F6ACFE /* UITimeEntryTotalTableViewCell.xib in Resources */,
 				A7A892BC24429DF2008BBF54 /* UITimeEntryTableView.xib in Resources */,
 				A73CC0B5243BD35300843031 /* Assets.xcassets in Resources */,
 				A70CCD5524428AEF00089142 /* Podfile in Resources */,
@@ -307,6 +316,7 @@
 				A73CC0B0243BD35000843031 /* SecondViewController.m in Sources */,
 				A7A892C32442B225008BBF54 /* UITimeEntryTableViewCell.m in Sources */,
 				A70CCD4E2442792000089142 /* NSDate+Extensions.m in Sources */,
+				A7F06F6A24463E0700F6ACFE /* UITimeEntryTotalTableViewCell.m in Sources */,
 				A75643B12442746A00937231 /* Project.m in Sources */,
 				A7A892BA24429CA5008BBF54 /* UITimeEntryTableView.m in Sources */,
 				A73CC0A7243BD35000843031 /* AppDelegate.m in Sources */,
